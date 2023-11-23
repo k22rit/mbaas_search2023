@@ -32,6 +32,16 @@ function searchName() {
         showResults(results); 
     }) 
 }
+function searchLevel() { 
+    let level = parseInt($("#level").val());
+    let TestDataClass = ncmb.DataStore(db); 
+    TestDataClass 
+    .equalTo("level", level) 
+    .fetchAll() 
+    .then(function(results) { 
+        showResults(results); 
+        }) 
+    }
 
     function showResults(results) {
       // テーブルのヘッダを生成
@@ -64,8 +74,8 @@ function searchName() {
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
-    <button class="btn" onclick="">Name</button>
-     <button class="btn" onclick="">Level</button>
+    <button class="btn" onclick="searchName()">Name</button>
+     <button class="btn" onclick="searchLevel()">Level</button>
   </div>
   
   <div id="message">message area</div>
