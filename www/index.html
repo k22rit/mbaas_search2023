@@ -33,26 +33,38 @@ function searchName() {
     }) 
 }
 function searchLevel() { 
-    let level = parseInt($("#level").val());
+    let color = parseInt($("#color").val());
     let TestDataClass = ncmb.DataStore(db); 
     TestDataClass 
-    .equalTo("level", level) 
+    .equalTo("color", color) 
     .fetchAll() 
     .then(function(results) { 
-        showResults(results); 
+    showResults(results); 
         }) 
     }
 
+    function searchLevelLT() { 
+        let color = parseInt($("#color").val()); 
+        let TestDataClass = ncmb.DataStore(db); 
+        TestDataClass 
+        .lessThan("color", color) 
+        .fetchAll() 
+        .then(function(results) { 
+            showResults(results); 
+    }) 
+}
+
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+      let msg = "<table><tr><th>name</th><th>color</th><th>ColorSort</th><th>KT</th><th>メモ</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
         msg += "<td>" + results[i].name + "</td>";
-        msg += "<td class='num'>" + results[i].level + "</td>";
-        msg += "<td class='num'>" + results[i].attack + "</td>";
-        msg += "<td class='num'>" + results[i].defence + "</td>";
+        msg += "<td class='num'>" + results[i].color + "</td>";
+        msg += "<td class='num'>" + results[i].ColorSort + "</td>";
+        msg += "<td class='num'>" + results[i].KT + "</td>";
+        msg += "<td class='num'>" + results[i].point + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
@@ -66,20 +78,23 @@ function searchLevel() {
   <h1>mBaaS search</h1>
   <div>
     <label for="name">name:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <input id="name" type="text" placeholder="name">
   </div>
   <div>
-    <label for="level">level:</label>
-    <input id="level" type="number" placeholder="monster level">
+    <label for="color">color:</label>
+    <input id="color" type="number" placeholder="color">
   </div>
   
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Level &lt</button>
-    <button class="btn" onclick="searchLevel()">Level</button>
+    <button class="btn" onclick="searchLevelLT()">Color &lt</button>
+    <button class="btn" onclick="searchLevel()">Color</button>
      <br>
+     <button class="btn" onclick="searchLevelLT()">KT &lt</button>
+    <button class="btn" onclick="searchLevel()">KT</button>
+    <br>
     <button class="btn" onclick="searchLevelLT()">Register</button>
   </div>
   
