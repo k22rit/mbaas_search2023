@@ -50,11 +50,11 @@ function searchColor() {
      })
     }
 
-    function searchLevelLT() { 
-        let color = parseInt($("#color").val()); 
+    function searchKT() { 
+        let KT = $("#KT").val(); 
         let TestDataClass = ncmb.DataStore(db); 
         TestDataClass 
-        .lessThan("color", color) 
+        .equalTo("KT", KT) 
         .fetchAll() 
         .then(function(results) { 
             showResults(results); 
@@ -84,11 +84,11 @@ function searchColor() {
 <body>
   <h1>mBaaS search</h1>
   <div>
-    <label for="name">name:</label>
+    <label for="name">Name:</label>
     <input id="name" type="text" placeholder="name">
   </div>
   <div>
-    <label for="color">color:</label>
+    <label for="color">Color:</label>
     <input id="color" type="text" placeholder="color">
   </div>
   <div>
@@ -101,11 +101,11 @@ function searchColor() {
     <button class="btn" onclick="fetchAllDOW()"> AllDOW</button>
     <br>
     <button class="btn" onclick="searchName()">Name</button>
-    <button class="btn" onclick="searchColor()">color</button>
-    <button class="btn" onclick="searchLevel()">KT</button>
+    <button class="btn" onclick="searchColor()">Color</button>
+    <button class="btn" onclick="searchKT()">KT</button>
 
     <br>
-    <button class="btn" onclick="searchLevelLT()">Register</button>
+    
   </div>
   
   <div id="message">message area</div>
