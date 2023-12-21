@@ -22,6 +22,13 @@
           showResults(results);
         })
     }
+     function fetchAllDOW() {
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("name",true).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
 function searchName() {  
     let name = $("#name").val(); 
     let TestDataClass = ncmb.DataStore(db); 
@@ -91,13 +98,12 @@ function searchLevel() {
   
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
-    <button class="btn" onclick="searchName()">Name</button>
+    <button class="btn" onclick="fetchAllDOW()"> AllDOW</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Color &lt</button>
+    <button class="btn" onclick="searchName()">Name</button>
     <button class="btn" onclick="searchLevel()">Color</button>
-     <br>
-     <button class="btn" onclick="searchLevelLT()">KT &lt</button>
     <button class="btn" onclick="searchLevel()">KT</button>
+     <br>
     <br>
     <button class="btn" onclick="searchLevelLT()">Register</button>
   </div>
