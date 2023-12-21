@@ -40,14 +40,14 @@ function searchName() {
     }) 
 }
 function searchColor() { 
-    let color= parseInt($("#color").val());
-    let TestDataClass = ncmb.DataStore(db); 
-    TestDataClass 
-    .equalTo("color", color) 
-    .fetchAll() 
-    .then(function(results) { 
-    showResults(results); 
-        }) 
+     let color = $("#color").val(); 
+     let TestDataClass = ncmb.DataStore(db); 
+     TestDataClass 
+     .equalTo("color", color) 
+     .fetchAll() 
+     .then(function(results) { 
+         showResults(results); 
+     })
     }
 
     function searchLevelLT() { 
@@ -89,11 +89,11 @@ function searchColor() {
   </div>
   <div>
     <label for="color">color:</label>
-    <input id="color" type="number" placeholder="color">
+    <input id="color" type="text" placeholder="color">
   </div>
   <div>
     <label for="KT">KT:</label>
-    <input id="KT" type="number" placeholder="KT">
+    <input id="KT" type="text" placeholder="KT">
   </div>
   
   <div id="button">
@@ -101,7 +101,7 @@ function searchColor() {
     <button class="btn" onclick="fetchAllDOW()"> AllDOW</button>
     <br>
     <button class="btn" onclick="searchName()">Name</button>
-    <button class="btn" onclick="searchColor()">Color</button>
+    <button class="btn" onclick="searchColor()">color</button>
     <button class="btn" onclick="searchLevel()">KT</button>
 
     <br>
