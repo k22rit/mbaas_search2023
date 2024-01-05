@@ -33,7 +33,7 @@ function searchName() {
     let name = $("#name").val(); 
     let TestDataClass = ncmb.DataStore(db); 
     TestDataClass 
-    .equalTo("name", name) 
+    .equalTo("name", true) 
     .fetchAll() 
     .then(function(results) { 
         showResults(results); 
@@ -97,7 +97,7 @@ function searchColor() {
   </div>
   
   <div id="button">
-    <button class="btn" onclick="fetchAll()">Fetch All</button>
+    <button class="btn" onclick="fetchAll()">AllUP</button>
     <button class="btn" onclick="fetchAllDOW()"> AllDOW</button>
     <br>
     <button class="btn" onclick="searchName()">Name</button>
