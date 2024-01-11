@@ -51,7 +51,7 @@ function searchColor() {
     }
 
     function searchKT() { 
-        let KT = $("#KT").val(); 
+        let KT = parseInt($("#KT").val()); 
         let TestDataClass = ncmb.DataStore(db); 
         TestDataClass 
         .equalTo("KT", KT) 
