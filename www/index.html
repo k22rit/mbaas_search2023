@@ -40,7 +40,7 @@ function searchName() {
     }) 
 }
 function searchColor() { 
-     let color = $("#color").val(); 
+     let color = parseInt($("#color").val()); 
      let TestDataClass = ncmb.DataStore(db); 
      TestDataClass 
      .equalTo("color", color) 
